@@ -2,14 +2,13 @@ package com.example.mysampleproject.ui
 
 import android.location.Location
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import io.mockk.every
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import io.mockk.mockk
 import io.mockk.verify
-import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-
+import kotlin.test.assertTrue
 
 class FirstFragmentViewModelTest {
 
@@ -41,8 +40,8 @@ class FirstFragmentViewModelTest {
             viewModel.startingPoint?.distanceTo(sampleLocation)
         }
 
-        Assert.assertTrue(viewModel.startingPoint != null)
-        Assert.assertTrue(viewModel.userDistance.value != null)
+        assertTrue(viewModel.startingPoint != null)
+        assertTrue(viewModel.userDistance.value != null)
     }
 
 }

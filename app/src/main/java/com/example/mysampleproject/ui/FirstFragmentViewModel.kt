@@ -2,7 +2,6 @@ package com.example.mysampleproject.ui
 
 import android.app.Application
 import android.location.Location
-import android.util.Log
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -30,8 +29,16 @@ class FirstFragmentViewModel(application: Application) : AndroidViewModel(applic
         }
         val distanceInMeters = startingPoint?.distanceTo(location) ?: 0.0f
 
+        shouldUpdateLiveData(distanceInMeters)
+    }
+
+
+    private fun shouldUpdateLiveData(distanceInMeters: Float) {
         if (distanceInMeters.compareTo(MINIMUM_METRES) >= ANY_POSITIVE_NUMBER) {
-            val message = getApplication<Application>().getString(R.string.user_notification_message, distanceInMeters.toInt())
+            val message = getApplication<Application>().getString(
+                R.string.user_notification_message,
+                distanceInMeters.toInt()
+            )
             userDistanceLiveData.value = message
         }
     }

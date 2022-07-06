@@ -35,10 +35,8 @@ open class LocationUpdateService : Service(), GoogleApiClient.ConnectionCallback
     private var stopService = false
 
     /* For Google Fused API */
-    protected var mGoogleApiClient: GoogleApiClient? = null
-    protected var mLocationSettingsRequest: LocationSettingsRequest? = null
-    private var latitude = "0.0"
-    private var longitude = "0.0"
+    private var mGoogleApiClient: GoogleApiClient? = null
+    private var mLocationSettingsRequest: LocationSettingsRequest? = null
     private var mFusedLocationClient: FusedLocationProviderClient? = null
     private var mSettingsClient: SettingsClient? = null
     private var mLocationCallback: LocationCallback? = null
@@ -80,7 +78,6 @@ open class LocationUpdateService : Service(), GoogleApiClient.ConnectionCallback
     }
 
     override fun onDestroy() {
-        Log.e(TAG, "Service Stopped")
         stopService = true
         if (mFusedLocationClient != null) {
             mFusedLocationClient!!.removeLocationUpdates(mLocationCallback!!)
@@ -123,17 +120,12 @@ open class LocationUpdateService : Service(), GoogleApiClient.ConnectionCallback
             RingtoneManager.getActualDefaultRingtoneUri(this, RingtoneManager.TYPE_NOTIFICATION)
         builder.setSound(notificationSound)
         builder.setAutoCancel(true)
-        //        builder.setSmallIcon(R.drawable.ic_logo);
         builder.setContentIntent(pendingIntent)
         val notification = builder.build()
         startForeground(101, notification)
     }
 
     override fun onLocationChanged(location: Location) {
-        Log.d(
-            "DEN",
-            "Location Changed Latitude : " + location.latitude + "\tLongitude : " + location.longitude
-        )
         if (location.latitude.toString().equals("0.0", ignoreCase = true) && location.longitude.toString().equals(
                 "0.0",
                 ignoreCase = true
