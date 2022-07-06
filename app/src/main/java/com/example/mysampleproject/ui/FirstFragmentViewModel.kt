@@ -14,7 +14,7 @@ class FirstFragmentViewModel(application: Application) : AndroidViewModel(applic
 
     companion object {
         private const val MINIMUM_METRES = 10.0f
-        private const val FLAG_GREATER_THAN_MINIMUM_METRES = 1
+        private const val ANY_POSITIVE_NUMBER = 1
     }
 
     private val userDistanceLiveData = MutableLiveData<String>()
@@ -30,9 +30,9 @@ class FirstFragmentViewModel(application: Application) : AndroidViewModel(applic
         }
         val distanceInMeters = startingPoint?.distanceTo(location) ?: 0.0f
 
-        if (distanceInMeters.compareTo(MINIMUM_METRES) >= FLAG_GREATER_THAN_MINIMUM_METRES) {
-            var message = getApplication<Application>().getString(R.string.user_notification_message, distanceInMeters.toInt())
-            userDistanceLiveData.postValue(message)
+        if (distanceInMeters.compareTo(MINIMUM_METRES) >= ANY_POSITIVE_NUMBER) {
+            val message = getApplication<Application>().getString(R.string.user_notification_message, distanceInMeters.toInt())
+            userDistanceLiveData.value = message
         }
     }
 

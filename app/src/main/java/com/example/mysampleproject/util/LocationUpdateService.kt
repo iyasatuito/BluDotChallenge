@@ -208,8 +208,7 @@ open class LocationUpdateService : Service(), GoogleApiClient.ConnectionCallback
         mLocationCallback = object : LocationCallback() {
             override fun onLocationResult(locationResult: LocationResult) {
                 super.onLocationResult(locationResult)
-                mCurrentLocation =
-                    if (locationResult.lastLocation != mCurrentLocation) locationResult.lastLocation else mCurrentLocation
+                mCurrentLocation = locationResult.lastLocation
                 mCurrentLocation?.let {
                     onLocationChanged(it)
                 }

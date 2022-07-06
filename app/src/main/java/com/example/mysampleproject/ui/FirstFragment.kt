@@ -136,7 +136,7 @@ class FirstFragment : Fragment(), OnMapReadyCallback {
                     mGmap.moveCamera(CameraUpdateFactory.newLatLng(myLocation))
                     mGmap.animateCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 11.0f))
                     val marker = MarkerOptions()
-                        .position(myLocation).title("My Location")
+                        .position(myLocation).title("Starting Location")
                     mGmap.addMarker(marker)?.tag = it
                 }
             }

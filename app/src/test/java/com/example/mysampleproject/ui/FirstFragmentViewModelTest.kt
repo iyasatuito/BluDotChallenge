@@ -4,6 +4,7 @@ import android.location.Location
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Rule
@@ -23,12 +24,12 @@ class FirstFragmentViewModelTest {
     }
 
     @Test
-    fun `Given location is not null, When background service returns location, Then livedata must not be null`() {
+    fun `Given location is not null, When background service returns location, Then comparison of distance must be performed`() {
         val testStartingLocation: Location = mockk(relaxed = true)
         testStartingLocation.longitude = 0.0
         testStartingLocation.latitude = 0.0
 
-        every{ viewModel.startingPoint } returns testStartingLocation
+        viewModel.startingPoint = testStartingLocation
 
         val sampleLocation: Location = mockk(relaxed = true)
         sampleLocation.longitude = 33.123456
@@ -36,6 +37,11 @@ class FirstFragmentViewModelTest {
 
         viewModel.getDistanceFromStartingPoint(sampleLocation)
 
+        verify {
+            viewModel.startingPoint?.distanceTo(sampleLocation)
+        }
+
+        Assert.assertTrue(viewModel.startingPoint != null)
         Assert.assertTrue(viewModel.userDistance.value != null)
     }
 
