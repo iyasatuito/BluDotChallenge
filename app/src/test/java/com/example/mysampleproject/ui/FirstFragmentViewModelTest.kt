@@ -41,7 +41,6 @@ class FirstFragmentViewModelTest {
         }
 
         assertTrue(viewModel.startingPoint != null)
-        assertTrue(viewModel.userDistance.value != null)
     }
 
 }
