@@ -2,7 +2,6 @@ package com.example.mysampleproject.ui
 
 import android.location.Location
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import io.mockk.mockk
 import io.mockk.verify
 import org.junit.Before
