@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "623971878690",
+    "project_id": "covidpilot-93497",
+    "storage_bucket": "covidpilot-93497.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623971878690:android:3897247009bfa8bb8f077b",
+        "android_client_info": {
+          "package_name": "com.pia.mobilecomputing.covidpilot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623971878690-67hp54mbcii2rs05mk4n43l5kb7qs0vi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pia.mobilecomputing.covidpilot",
+            "certificate_hash": "4d93ba385f402ae698b8ecdd60c2af3850121c6d"
+          }
+        },
+        {
+          "client_id": "623971878690-nhslft0vfhu60209einkh6lfqunac38p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgFopkJDefXjxsn6U31Sue8TdxSqrvCVw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623971878690-nhslft0vfhu60209einkh6lfqunac38p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
